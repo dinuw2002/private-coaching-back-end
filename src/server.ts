@@ -11,7 +11,7 @@ const app: Application = express();
 
 // Middleware
 app.use(cors({
-  origin: [process.env.FRONTEND_URL || 'http://localhost:3000'],
+  origin: ['https://privatecoachingfrontend.vercel.app/'],
   credentials: true
 }));
 
