@@ -1,5 +1,5 @@
 import { type Request, type Response } from 'express';
-import User from '../models/User.js';
+import User from '../models/User';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret_key';
@@ -28,7 +28,6 @@ export const register = async (req: Request, res: Response): Promise<void> => {
     }
 
     // 4. Create and save new user
-    // Note: Password hashing is handled automatically by the pre-save hook in User.ts
     const newUser = new User({
       firstName,
       lastName,
@@ -56,7 +55,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// Also adding the Login function here so it matches the updated structure
+
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
