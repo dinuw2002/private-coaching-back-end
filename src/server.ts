@@ -11,8 +11,11 @@ const app: Application = express();
 
 // Middleware
 app.use(cors({
-  origin: ['https://privatecoachingfrontend.vercel.app/'],
-  credentials: true
+  
+  origin: 'https://privatecoachingfrontend.vercel.app', 
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
